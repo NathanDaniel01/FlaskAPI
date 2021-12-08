@@ -90,6 +90,15 @@ def update_recipe(recipe_id):
 
     return jsonify(recipe)
 
+### DELETE FUNCTION #### BUG #### 
+@app.route('/recipes/DeleteByID/<int:ContentID>',methods=['DELETE'])
+def Delete_ByID(ContentID):
+    recipe = next((recipe for recipe in recipes if recipe['ContentID'] == ContentID), None)
+    if not recipe:
+        return jsonify({'message': 'recipe not found'}), HTTPStatus.NOT_FOUND
+    recipes.remove(recipe)
+    return jsonify(recipes)
+
 
 if __name__ == '__main__':
     app.run()

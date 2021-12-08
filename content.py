@@ -181,7 +181,6 @@ def test_content():
         'ContentHeld': 'a lovely egg salad recipe.',
         'PageID': 1
         },db) 
-
     id2=insert_content({
         'ContentID': 2,
         'GroupID': 1,
